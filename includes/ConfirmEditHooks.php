@@ -250,4 +250,20 @@ class ConfirmEditHooks {
 
 		return false;
 	}
+
+	public static function onResourceLoaderGetConfigVars( array &$vars ) {
+		global $wgReCaptchaSiteKey;
+		global $wgCaptchaClass;
+		global $wgReCaptchaVersion;
+
+		if ( $wgCaptchaClass === 'ReCaptchaNoCaptcha' ) {
+			$vars['wgConfirmEditConfig'] = [
+				'reCaptchaVersion' => $wgReCaptchaVersion,
+				'reCaptchaSiteKey' => $wgReCaptchaSiteKey,
+				'reCaptchaScriptURL' => 'https://www.google.com/recaptcha/api.js'
+			];
+		}
+
+		return true;
+	}
 }

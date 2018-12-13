@@ -80,7 +80,8 @@
 		"APIGetAllowedParams": "ConfirmEditHooks::APIGetAllowedParams",
 		"TitleReadWhitelist": "ConfirmEditHooks::onTitleReadWhitelist",
 		"AlternateEditPreview": "ConfirmEditHooks::onAlternateEditPreview",
-		"AuthChangeFormFields": "ConfirmEditHooks::onAuthChangeFormFields"
+		"AuthChangeFormFields": "ConfirmEditHooks::onAuthChangeFormFields",
+		"ResourceLoaderGetConfigVars": "ConfirmEditHooks::onResourceLoaderGetConfigVars"
 	},
 	"AuthManagerAutoConfig": {
 		"preauth": {

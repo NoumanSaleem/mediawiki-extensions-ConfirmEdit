@@ -14,7 +14,9 @@
 		"CaptchaClass": "ReCaptchaNoCaptcha",
 		"ReCaptchaSiteKey": "",
 		"ReCaptchaSecretKey": "",
-		"ReCaptchaSendRemoteIP": false
+		"ReCaptchaSendRemoteIP": false,
+		"ReCaptchaVersion": "v2",
+		"ReCaptchaThreshold": ""
 	},
 	"manifest_version": 1
 }

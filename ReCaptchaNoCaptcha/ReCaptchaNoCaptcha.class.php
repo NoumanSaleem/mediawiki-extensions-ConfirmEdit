@@ -97,7 +97,7 @@ HTML;
 	 * @return bool
 	 */
 	function passCaptcha( $_, $word ) {
-		global $wgRequest, $wgReCaptchaSecretKey, $wgReCaptchaSendRemoteIP;
+		global $wgRequest, $wgReCaptchaSecretKey, $wgReCaptchaSendRemoteIP, $wgReCaptchaThreshold;
 
 		$url = 'https://www.google.com/recaptcha/api/siteverify';
 		// Build data to append to request
@@ -125,6 +125,10 @@ HTML;
 		if ( isset( $response['error-codes'] ) ) {
 			$this->error = 'recaptcha-api';
 			$this->logCheckError( $response['error-codes'] );
+			return false;
+		}
+		if ( isset( $response['score'] ) && $response['score'] < $wgReCaptchaThreshold ) {
+			$this->error = 'recaptcha-api';
 			return false;
 		}
 
